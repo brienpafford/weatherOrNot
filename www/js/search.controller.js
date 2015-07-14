@@ -8,8 +8,8 @@ angular.module('won.search', [])
             params: {address: $scope.query}
           })
               .success(function (data){
-              console.log(data);
-            })
+              $scope.results = data.results;
+            });
       }, 2000);
 
 });
