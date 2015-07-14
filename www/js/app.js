@@ -13,7 +13,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'won.search'])
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
-    }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
@@ -35,7 +34,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'won.search'])
     url: "/search",
     views: {
       'menuContent': {
-        templateUrl: "templates/search.html"
+        templateUrl: "templates/search.html",
+        controller: 'SearchCtrl'
       }
     }
   })
@@ -44,8 +44,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'won.search'])
     url: "/browse",
     views: {
       'menuContent': {
-        templateUrl: "templates/browse.html",
-        controller: 'SearchCtrl'
+        templateUrl: "templates/browse.html"
       }
     }
   })
