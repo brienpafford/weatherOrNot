@@ -8,7 +8,7 @@
       </div>
         <div class="item range range-assertive">
          36&deg
-          <input type="range" ng-model="$parent.precision" min="0" max="2" value="3">
+          <input ng-change = "precisionChanged() "type="range" ng-model="$parent.precision" min="0" max="2" value="3">
           36.78&deg
         </div>
     </div>

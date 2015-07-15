@@ -2,8 +2,8 @@ angular.module('won.settings', [])
 
 .controller('SettingsCtrl', function(settings, $scope, $ionicLoading) {
 
-  $scope.precision = settings.scale;
-  $scope.scale = settings.precision;
+  $scope.precision = localStorage.precision;//settings.scale;
+  $scope.scale = localStorage.scale//settings.precision;
 
 $scope.randomScale = function () {
   $ionicLoading.show({
@@ -11,6 +11,19 @@ $scope.randomScale = function () {
     duration: 1000
   });
 }
+
+// $scope.precisionChanged = function () {
+//   console.log($scope.precision)
+// };
+
+
+$scope.$watch('precision', function (){
+  localStorage.precision = $scope.precision;
+});
+
+$scope.$watch('scale', function () {
+  localStorage.scale = $scope.scale;
+})
 
 })
 
