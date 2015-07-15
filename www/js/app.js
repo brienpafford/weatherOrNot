@@ -4,7 +4,14 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'won.search', 'won.factory', 'won.weather'])
+angular.module('starter', [
+               'ionic',
+               'starter.controllers',
+               'won.search',
+               'won.weather',
+               'won.services',
+               'won.settings'
+        ])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -35,38 +42,31 @@ angular.module('starter', ['ionic', 'starter.controllers', 'won.search', 'won.fa
     views: {
       'menuContent': {
         templateUrl: "templates/search/search.html",
-        controller: "SearchCtrl"
+        controller: 'SearchCtrl'
       }
     }
   })
 
-  // .state('app.settings', {
-  //   url: "/settings",
-  //   views: {
-  //     'menuContent': {
-  //       templateUrl: "templates/settings.html"
-  //     }
-  //   }
-  // })
-    .state('app.playlists', {
-      url: "/playlists",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
-
   .state('app.weather', {
-    url: "/weather/:city/:lat/:lng",
+    url: "/weather/:city/:lat/:long",
     views: {
       'menuContent': {
         templateUrl: "templates/weather/weather.html",
         controller: 'WeatherCtrl'
       }
     }
+  })
+
+  .state('app.settings', {
+    url: "/settings",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/settings/settings.html",
+        controller: 'SettingsCtrl'
+      }
+    }
   });
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/search');
 });

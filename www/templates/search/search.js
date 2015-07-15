@@ -1,12 +1,10 @@
 angular.module('won.search', [])
 
-.controller('SearchCtrl', function($scope, $stateParams, Weather) {
-
-  $scope.locationChanged = _.debounce(function(){
-    Weather.getCoord($scope.location, function(data){
-      $scope.cityArray = data.results;
-      console.log($scope.cityArray);
-    });
-  }, 1200)
-
+.controller('SearchCtrl', function($scope, $http, Geolocation) {
+  $scope.results = [];
+  $scope.queryChanged = _.debounce(function() {
+    Geolocation.latLong($scope.query, function(res) {
+      $scope.results = res.results;
+    })
+  }, 800);
 });

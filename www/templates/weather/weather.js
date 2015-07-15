@@ -1,18 +1,13 @@
 angular.module('won.weather', [])
 
-.controller('WeatherCtrl', function($scope, $stateParams, Weather, $ionicLoading) {
+.controller('WeatherCtrl', function($scope, $stateParams, $http, $ionicLoading, Weather) {
+
+  $scope.city = $stateParams.city;
 
   $ionicLoading.show();
 
-  console.log($stateParams.lng)
-
-  $scope.city = $stateParams.city;
-  var lat = $stateParams.lat*1
-  var lng = $stateParams.lng*1
-
-  Weather.getWeather(lat, lng, function(res){
+  Weather.current($stateParams,function(res) {
+    $scope.current = res.currently;
     $ionicLoading.hide();
-    $scope.forecast = res;
-    console.log(res)
   })
 });
