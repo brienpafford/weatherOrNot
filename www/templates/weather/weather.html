@@ -1,0 +1,15 @@
+<ion-view view-title="{{city}}">
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        {{forecast.currently.summary}}
+      </ion-item>
+      <ion-item>
+        Temperature : {{forecast.currently.temperature}}&deg
+      </ion-item>
+      <ion-item>
+        Feels like: {{forecast.currently.apparentTemperature}}&deg
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
