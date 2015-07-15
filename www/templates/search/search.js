@@ -6,5 +6,5 @@ angular.module('won.search', [])
     Geolocation.latLong($scope.query, function(res) {
       $scope.results = res.results;
     })
-  }, 800);
+  }, 600);
 });

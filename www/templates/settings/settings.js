@@ -16,7 +16,6 @@ angular.module('won.settings', [])
 //   console.log($scope.precision)
 // };
 
-
 $scope.$watch('precision', function (){
   settings.setPrecision($scope.precision)
 });
