@@ -1,5 +1,23 @@
 <ion-view view-title="Location Search">
   <ion-content>
-    <h1>Settings Page</h1>
+    <h2>Settings Page</h2>
+    <br>
+    <div class="list">
+      <div class="item item-divider">
+      Degree Decimal
+      </div>
+        <div class="item range range-assertive">
+         36&deg
+          <input type="range" ng-model="$parent.precision" min="0" max="2" value="3">
+          36.78&deg
+        </div>
+    </div>
+  <div class="item item-divider">
+    Units Displayed
+  </div>
+     <ion-radio ng-model="$parent.scale" ng-value="'F'" toggle-class="toggle-assertive">Fahrenheit
+     </ion-radio>
+      <ion-radio ng-model="$parent.scale" ng-value="'C'" toggle-class="toggle-assertive">Celsius
+     </ion-radio>
   </ion-content>
 </ion-view>
