@@ -1,8 +1,13 @@
 angular.module('won.menu', [])
-  .controller('MenuCtrl', function (location, $scope) {
+  .controller('MenuCtrl', function (location, $scope, $rootScope) {
     $scope.favorites = location.favorites;
 
-    $scope.makeFavorite = function () {
-      location.favorites.addFvorite({name, lat, long})
-    }
+    $rootScope.$on('menuItemChanged', function (event, message) {
+      $scope.favorites = location.favorites;
+    });
+
+    $scope.makeFavorite = function (obj) {
+      location.addFavorite(obj);
+      $rootScope.$emit('menuItemChanged');
+    };
   });
