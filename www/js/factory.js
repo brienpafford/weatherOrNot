@@ -20,9 +20,9 @@ angular.module('won.services', [])
           precision = parseInt(settings.precision);
       $http.get(
             'api/forecast/'
-             + parseFloat(params.lat).toFixed(precision)
+             + parseFloat(params.lat)
              + ','
-             + parseFloat(params.long).toFixed(precision)
+             + parseFloat(params.long)
              + '?units='
              + units
                )
