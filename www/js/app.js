@@ -9,8 +9,9 @@ angular.module('starter', [
                'starter.controllers',
                'won.search',
                'won.weather',
-               'won.services',
-               'won.settings'
+               'won.factory',
+               'won.settings',
+               'won.menu'
         ])
 
 .run(function($ionicPlatform) {
@@ -33,7 +34,7 @@ angular.module('starter', [
   .state('app', {
     url: "/app",
     abstract: true,
-    templateUrl: "templates/menu.html",
+    templateUrl: "templates/menu/menu.html",
     controller: 'AppCtrl'
   })
 

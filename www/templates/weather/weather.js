@@ -1,6 +1,6 @@
 angular.module('won.weather', [])
 
-.controller('WeatherCtrl', function($scope, $stateParams, $ionicLoading, Weather, Settings) {
+.controller('WeatherCtrl', function($scope, $state, $stateParams, $ionicLoading, Weather, Settings) {
 
   $scope.city = $stateParams.city;
   $scope.precision = Settings.precision;
@@ -18,3 +18,5 @@ angular.module('won.weather', [])
      $state.reload();
   })
 });
+
+

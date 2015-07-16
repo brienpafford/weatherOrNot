@@ -9,7 +9,7 @@
             ng-change="$parent.queryChanged()"
           >
       </ion-item>
-      <ion-item class="item item-input-inset"
+     <ion-item
         ng-repeat="result in results"
         ui-sref="app.weather({
           city: result.formatted_address,
