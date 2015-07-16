@@ -15,14 +15,29 @@ angular.module('won.services', [])
 
 .factory('Weather', function($http) {
   var weather = {
-    current : function(params,cb) {
-      $http.get('api/forecast/'
-             + params.lat
+    current : function(params,settings,cb) {
+      var units = (settings.scale === 'C') ? 'si' : 'us',
+          precision = parseInt(settings.precision);
+      $http.get(
+            'api/forecast/'
+             + parseFloat(params.lat).toFixed(precision)
              + ','
-             + params.long)
+             + parseFloat(params.long).toFixed(precision)
+             + '?units='
+             + units
+               )
       .success(cb);
     }
-  }
+  };
   return weather;
+})
 
+.factory('Settings', function() {
+  var settings = {
+    get scale() { return localStorage.scale || 'F'; },
+    set scale(value) { localStorage.scale = value; },
+    get precision() { return localStorage.precision || 1; },
+    set precision(value) { localStorage.precision = value; }
+  };
+  return settings;
 });
